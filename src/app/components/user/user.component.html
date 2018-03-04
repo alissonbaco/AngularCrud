@@ -1,0 +1,85 @@
+<h1>{{title}} User</h1>
+<hr>
+<form class="form-inline" [formGroup]="userForm" (ngSubmit)="save()" novalidate>
+    <div class="form-group row">
+        <label for="" class="col-md-12">First Name</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="firstname">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="firstname.invalid && (firstname.dirty || submitted)">
+                <div *ngIf="firstname.errors.required">
+                    First Name is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Last Name</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="lastname">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="lastname.invalid && (lastname.dirty || submitted)">
+                <div *ngIf="lastname.errors.required">
+                    Last Name is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-inline">
+        <div class="form-group row">
+            <label for="" class="col-md-12">Email</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="col-md-6">
+             
+            </div>
+        </div>
+        <b>Field</b>
+        <div class="form-group">
+            <div class="vertical-radio-buttons">
+                <div class="radio">
+                    <label class="btn btn-default">
+                        <input formControlName="field" Text="Field" GroupName="field" Checked="" type="radio" name="field" value="1" id="field1" required>
+                        <label for="field1">Field</label>
+                    </label>
+                </div>
+            </div>
+            <div class="radio">
+                <label class="btn btn-default">
+                    <input formControlName="field" Text="Office" GroupName="field" Checked="" type="radio" name="field" value="2" id="field1" />
+                    <label for="field1">Office</label>
+                </label>
+            </div>
+        </div>
+
+        <b>Roles</b>
+        <div class="form-group">
+            <div class="vertical-radio-buttons">
+
+                <div class="radio">
+                    <label class="btn btn-default">
+                        <input formControlName="role" Text="User" GroupName="roles" Checked="false" type="radio" name="role" value="1" id="userRadio"
+                            required>
+                        <label for="userRadio">User</label>
+                    </label>
+                </div>
+            </div>
+            <div class="radio">
+                <label class="btn btn-default">
+                    <input formControlName="role" Text="Admin" GroupName="roles" Checked="" type="radio" name="role" value="2" id="adminRadio"
+                    />
+                    <label for="adminRadio">Admin</label>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-primary" id="Submit" value="Save" />
+            <input type="button" class="btn btn-warning" value="Cancel" (click)="cancel()">
+        </div>
+    </div>
+</form>
